@@ -6,6 +6,11 @@
 
 int main()
 {
+#ifdef SKIP_GAME
+    std::cout << " ===========  NO GAME AVAILABLE!!!! ==========" << std::endl;
+    return 0;
+#endif  // SKIP_GAME
+
     Character character1("Tor");
     Character character2("Ronald");
 

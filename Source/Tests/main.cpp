@@ -1,21 +1,32 @@
-#include <cassert>
 #include "Utils/Math.h"
 #include "Game/Character.h"
+#include <gtest/gtest.h>
+#include <iostream>
 
-int main()
+using namespace LifeEXEsimpoe;
+
+TEST(Math, MaxShouldBeCalculatedCorrectly)
 {
-    using namespace LifeEXEsimpoe;
-    assert(max(3, 0) == 3);
-    assert(max(-3, 0) == 0);
+    ASSERT_TRUE(max(3, 0) == 3);
+    ASSERT_TRUE(max(-3, 0) == 0);
+}
 
+TEST(Character, CharacterCanBeKilled)
+{
     Character character("Nemo");
-    assert(!character.isDead());
+    ASSERT_TRUE(!character.isDead());
 
     character.takeDamage(10);
-    assert(!character.isDead());
+    ASSERT_TRUE(!character.isDead());
 
-    character.takeDamage(10000);
-    assert(character.isDead());
+    character.takeDamage(1000);
+    ASSERT_TRUE(character.isDead());
+}
 
-    return 0;
+int main(int argc, char **argv)
+{
+    testing::InitGoogleTest(&argc, argv);
+    const auto status = RUN_ALL_TESTS();
+    std::cin.get();
+    return status;
 }

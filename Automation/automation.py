@@ -52,7 +52,7 @@ def get_cmake_command(action):
     }
 
     if action == Action.GENERATE:
-        return f'cmake .. {cmake_flags["generator"]} {cmake_flags["platform"]} {cmake_flags["fresh"]}'
+        return f'cmake .. {cmake_flags["generator"]} {cmake_flags["platform"]} {cmake_flags["fresh"]} -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake" '
     elif action in (Action.BUILD_DEBUG, Action.BUILD_RELEASE):
         configuration = (
             Configuration.Debug
@@ -61,7 +61,7 @@ def get_cmake_command(action):
         )
         return f'cmake --build . {cmake_flags["clean_first"]} {cmake_flags["verbose"]} --config {configuration.value}'
     return None
-
+ 
 def run_command(command):
     result = subprocess.run(command, shell=True)
     return result.returncode == 0

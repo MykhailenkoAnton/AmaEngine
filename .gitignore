@@ -2,3 +2,5 @@
 .codegpt
 build/
 .vscode/
+
+CMakeUserPresets.json

@@ -10,12 +10,14 @@ public:
 
     struct Config
     {
-        float width{40.0f};
-        float height{40.0f};
-        float speed{210.0f};
-        float gravity{400.f};
-        float jumpVelocityY{-500.0f};
-        float initialOffsetY{-50.f};
+        float width;
+        float height;
+        float speed;
+        float gravity;
+        float jumpVelocityY;
+        float initialOffsetY;
+
+        Config() : width(40.0f), height(40.0f), speed(210.0f), gravity(400.0f), jumpVelocityY(-500.0f), initialOffsetY(-50.f) {}
     };
 
     Player(const ScreenSize& screenSize, const Config& config = Config());

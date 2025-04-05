@@ -11,9 +11,11 @@ set(SOURCE_FILES
     Types.h
     PlatformMananger.h
     PlatformMananger.cpp
+    pch.h
     )
 
 add_library(${PROJECT_NAME}Lib ${SOURCE_FILES})
+target_precompile_headers(${PROJECT_NAME}Lib PRIVATE pch.h)
 
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}Lib)
 target_link_libraries(${PROJECT_NAME}Lib raylib MathLib)
@@ -26,4 +28,4 @@ set_target_properties(${PROJECT_NAME}Lib PROPERTIES FOLDER ${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME}TestRunner PROPERTIES FOLDER ${PROJECT_NAME})
 
 include(${CMAKE_SOURCE_DIR}/Automation/CMAKE/CMakeHelpers.cmake)
-setup_precompiled_headers(${PROJECT_NAME} pch.cpp pch.h "${SOURCE_FILES}")
+#setup_precompiled_headers(${PROJECT_NAME} pch.cpp pch.h "${SOURCE_FILES}")

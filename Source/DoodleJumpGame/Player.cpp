@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+Player::Player(const ScreenSize& screenSize) : Player(screenSize, Config()) {}
+
 Player::Player(const ScreenSize& screenSize, const Config& config) : c_screenSize(screenSize), c_config(config), m_velocityY(0.f)
 {
     m_x = (screenSize.width / 2) - (c_config.width / 2);

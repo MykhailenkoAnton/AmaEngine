@@ -27,5 +27,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER ${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME}Lib PROPERTIES FOLDER ${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME}TestRunner PROPERTIES FOLDER ${PROJECT_NAME})
 
-include(${CMAKE_SOURCE_DIR}/Automation/CMAKE/CMakeHelpers.cmake)
+#include(${CMAKE_SOURCE_DIR}/Automation/CMAKE/CMakeHelpers.cmake)
 #setup_precompiled_headers(${PROJECT_NAME} pch.cpp pch.h "${SOURCE_FILES}")

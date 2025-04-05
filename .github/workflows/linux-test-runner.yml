@@ -18,6 +18,9 @@ jobs:
           - FightClubGameTestRunner
           - DoodleJumpGameTestRunner
 
+    env:
+        TEST_REPORT_PATH: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
+
     steps:
     - uses: actions/checkout@v4
 
@@ -31,20 +34,20 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.CONFIGURATION}} -v --target ${{matrix.target}}
 
     - name: Run tests
-      run: ${{github.workspace}}/build/bin/${{matrix.target}} --gtest_output=xml:"${{github.workspace}}/build/bin/${{matrix.target}}-report.xml"
+      run: ${{github.workspace}}/build/bin/${{matrix.target}} --gtest_output=xml:"${{env.TEST_REPORT_PATH}}"
 
     - name: Upload Atrifacts
       uses: actions/upload-artifact@v4
       with:
         name: TestResults-${{matrix.target}}
-        path: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
+        path: ${{env.TEST_REPORT_PATH}}
 
     - name: Publish Test Report
       uses: phoenix-actions/test-reporting@v10
       if: always()
       with:
         name: Test result
-        path: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
+        path: ${{env.TEST_REPORT_PATH}}
         reporter: java-junit
         output-to: 'step-summary'
         fail-on-error: 'true'

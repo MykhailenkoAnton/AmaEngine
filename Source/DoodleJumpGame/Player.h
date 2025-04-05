@@ -18,7 +18,7 @@ public:
         float initialOffsetY{-50.f};
     };
 
-    Player(const ScreenSize& screenSize, const Config& config = {});
+    Player(const ScreenSize& screenSize, const Config& config = Config());
 
     void moveLeft(float deltaTime);
     void moveRight(float deltaTime);

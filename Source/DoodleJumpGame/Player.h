@@ -7,7 +7,6 @@
 class Player
 {
 public:
-
     struct Config
     {
         float width;
@@ -35,7 +34,6 @@ public:
     Rectangle sweepAABB() const;
 
 private:
-
     const ScreenSize c_screenSize;
     const Config c_config;
 

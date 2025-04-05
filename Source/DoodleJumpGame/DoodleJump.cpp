@@ -17,19 +17,16 @@ bool isOnPlarformGround(const Rectangle& player, const Rectangle& sweepPlayer, c
     return (normalCollision || sweepCollision) && (player.y + player.height - yTreshold <= platform.y);
 }
 
-}
+}  // namespace
 
 DoodleJump::DoodleJump()
 {
     reset();
 }
 
-DoodleJump::~DoodleJump() 
-{
+DoodleJump::~DoodleJump() {}
 
-}
-
-void DoodleJump::run() 
+void DoodleJump::run()
 {
     const char* windowTitle = "DoodleJump";
     InitWindow(c_screenSize.width, c_screenSize.height, "DoodleJump");
@@ -111,7 +108,7 @@ void DoodleJump::update()
     m_isGameOver = m_player->y() > c_screenSize.height;
 }
 
-void DoodleJump::draw() 
+void DoodleJump::draw()
 {
     BeginDrawing();
     ClearBackground(BLACK);
@@ -121,7 +118,7 @@ void DoodleJump::draw()
         DrawRectangleRec(platform, WHITE);
     }
 
-    //DrawRectangleRec(m_player->sweepAABB(), {255, 255, 255, 120});
+    // DrawRectangleRec(m_player->sweepAABB(), {255, 255, 255, 120});
     DrawRectangleRec(m_player->aabb(), {255, 171, 0, 255});
     DrawRectangleLinesEx(m_player->aabb(), 2, LIGHTGRAY);
 

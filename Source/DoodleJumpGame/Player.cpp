@@ -42,7 +42,7 @@ void Player::jump()
     m_velocityY = c_config.jumpVelocityY;
 }
 
-void Player::setY(float y) 
+void Player::setY(float y)
 {
     m_y = y;
 }

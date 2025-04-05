@@ -11,7 +11,7 @@ float mockRandomFuncFromArray(float min = 0.0f, float max = 0.0f)
     std::vector<float> randomValues = {10.f, 20.f, 30.f, 40.f, 50.f, 60.f, 70.f, 80.f, 90.f, 100.f};
     return randomValues[(randomFuncIndex++) % randomValues.size()];
 }
-}
+}  // namespace
 
 TEST(PlayerTest, JumpVelocityShouldBeSetCorrectly)
 {
@@ -61,7 +61,7 @@ TEST(PlatformManager, PlarformPositionShouldBeSetCorecctly)
     }
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
     const auto status = RUN_ALL_TESTS();

@@ -171,7 +171,5 @@ int main()
         EndDrawing();
     }
 
-    //CloseWindow(); 
-
     return EXIT_SUCCESS;
 }

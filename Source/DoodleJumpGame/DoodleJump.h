@@ -8,14 +8,12 @@ class PlatformManager;
 class DoodleJump
 {
 public:
-
-	DoodleJump();
+    DoodleJump();
 
     ~DoodleJump();
     void run();
 
 private:
-
     void reset();
 
     void handleInput();
@@ -27,7 +25,6 @@ private:
     void drawGameOver();
 
 private:
-
     bool m_isGameOver;
     int m_score;
 

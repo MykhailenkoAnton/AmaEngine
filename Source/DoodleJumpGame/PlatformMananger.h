@@ -17,7 +17,6 @@ private:
     void regeneratePlatform(Rectangle& platform);
 
 private:
-
     const ScreenSize c_screenSize;
     std::vector<Rectangle> m_platforms;
 

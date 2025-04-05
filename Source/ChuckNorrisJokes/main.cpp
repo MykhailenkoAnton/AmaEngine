@@ -15,7 +15,7 @@
 // no work
 
 #include <nlohmann/json.hpp>
-//#include <cpr/cpr.h>
+// #include <cpr/cpr.h>
 #include <iostream>
 #include <string>
 #include <optional>
@@ -24,11 +24,11 @@ namespace httpCodes
 {
 constexpr int HTTP_OK = 200;
 constexpr int HTTP_ERROR = 404;
-} // namespace httpCodes
+}  // namespace httpCodes
 
 constexpr const char* CHUCK_URL = "https://api.chucknorris.io/jokes/random";
 
-template<typename T>
+template <typename T>
 static std::optional<T> parse(const std::string jsonStr)
 {
     try

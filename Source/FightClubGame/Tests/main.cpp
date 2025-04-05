@@ -23,7 +23,7 @@ TEST(Character, CharacterCanBeKilled)
     ASSERT_TRUE(character.isDead());
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
     const auto status = RUN_ALL_TESTS();

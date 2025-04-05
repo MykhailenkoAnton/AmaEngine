@@ -39,6 +39,13 @@ jobs:
         name: TestResults-${{matrix.target}}
         path: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
 
-
-
+    - name: Publish Test Report
+      uses: phoenix-actions/test-reporting@v10
+      if: always()
+      with:
+        name: Test result
+        path: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
+        reporter: java-junit
+        output-to: 'step-summary'
+        fail-on-error: 'true'
 

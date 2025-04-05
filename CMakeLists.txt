@@ -1,5 +1,10 @@
 #general info
 cmake_minimum_required(VERSION 3.30)
+
+include(${CMAKE_SOURCE_DIR}/Automation/CMAKE/CMakeHelpers.cmake)
+setup_conan()
+
+#prj init
 set(PROJECT_NAME CMakeLearning)
 project(${PROJECT_NAME} VERSION 1.0.0)
 
@@ -18,7 +23,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(nlohmann_json REQUIRED)
 find_package(GTest REQUIRED)
-find_package(cpr REQUIRED)
+# find_package(cpr REQUIRED)
 find_package(raylib REQUIRED)
 
 include_directories(Source)
@@ -30,5 +35,4 @@ add_subdirectory(Source/Utils)
 add_subdirectory(Source/FightClubGame)
 add_subdirectory(Source/DoodleJumpGame)
 
-include(${CMAKE_SOURCE_DIR}/Automation/CMAKE/CMakeHelpers.cmake)
 system_info()

@@ -15,7 +15,7 @@
 // no work
 
 #include <nlohmann/json.hpp>
-#include <cpr/cpr.h>
+//#include <cpr/cpr.h>
 #include <iostream>
 #include <string>
 #include <optional>
@@ -64,23 +64,23 @@ struct ChuckResponse
 std::string requestJoke()
 {
     std::string joke{};
-    cpr::Response responce = cpr::Get(cpr::Url{CHUCK_URL}, cpr::VerifySsl(false));
+    // cpr::Response responce = cpr::Get(cpr::Url{CHUCK_URL}, cpr::VerifySsl(false));
 
-    if (responce.status_code == httpCodes::HTTP_OK)
-    {
-        std::cout << responce.header["content-type"] << std::endl;
-        std::cout << responce.text << std::endl;
+    // if (responce.status_code == httpCodes::HTTP_OK)
+    // {
+    //     std::cout << responce.header["content-type"] << std::endl;
+    //     std::cout << responce.text << std::endl;
 
-        if (const auto chunkResponse = parse<ChuckResponse>(responce.text))
-        {
-            std::cout << "=============================================" << std::endl;
-            std::cout << chunkResponse->value << std::endl;
-            std::cout << chunkResponse->id << std::endl;
-            std::cout << chunkResponse->url << std::endl;
+    //     if (const auto chunkResponse = parse<ChuckResponse>(responce.text))
+    //     {
+    //         std::cout << "=============================================" << std::endl;
+    //         std::cout << chunkResponse->value << std::endl;
+    //         std::cout << chunkResponse->id << std::endl;
+    //         std::cout << chunkResponse->url << std::endl;
 
-            joke = chunkResponse->value;
-        }
-    }
+    //         joke = chunkResponse->value;
+    //     }
+    // }
 
     return joke;
 }

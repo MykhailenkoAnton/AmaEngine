@@ -1,0 +1,44 @@
+name: Linux Test Runner
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CONFIGURATION: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target:
+          - FightClubGameTestRunner
+          - DoodleJumpGameTestRunner
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Conan
+      run: pip install conan
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.CONFIGURATION}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.CONFIGURATION}} -v --target ${{matrix.target}}
+
+    - name: Run tests
+      run: ${{github.workspace}}/build/bin/${{matrix.target}} --gtest_output=xml:"${{github.workspace}}/build/bin/${{matrix.target}}-report.xml"
+
+    - name: Upload Atrifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: TestResults-${{matrix.target}}
+        path: ${{github.workspace}}/build/bin/${{matrix.target}}-report.xml
+
+
+
+

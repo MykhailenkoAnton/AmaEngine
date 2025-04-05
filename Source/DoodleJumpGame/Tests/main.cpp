@@ -40,7 +40,7 @@ TEST(PlayerTest, PlayerShouldFallUnderTheGravity)
     ASSERT_EQ(player.y(), initialY + config.gravity);
 }
 
-TEST(PlatformManager, PlarformPositionShouldBeSetCorecctly)
+TEST(PlatformManagerTest, PlarformPositionShouldBeSetCorecctly)
 {
     const ScreenSize screenSize{500, 700};
     PlatformManager platformManager(screenSize, mockRandomFuncFromArray);
@@ -59,12 +59,4 @@ TEST(PlatformManager, PlarformPositionShouldBeSetCorecctly)
         EXPECT_NEAR(platforms[i].x, expectedX, 0.001f);
         EXPECT_NEAR(platforms[i].y, expectedY, 0.001f);
     }
-}
-
-int main(int argc, char** argv)
-{
-    testing::InitGoogleTest(&argc, argv);
-    const auto status = RUN_ALL_TESTS();
-    std::cin.get();
-    return status;
 }
